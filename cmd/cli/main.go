@@ -357,14 +357,9 @@ func main() {
 			endpointName := c.Param("endpoint_name")
 			readSegmentURL := fmt.Sprintf("http://localhost:8000/%s", endpointName)
 
-			// Call watermarkSegment function (or any other processing logic)
 			watermarkSegment(readSegmentURL, c.Writer)
-
-			// Optionally, you can send a response to the client
-			// c.String(http.StatusOK, "You have hit the endpoint: %s", endpointName)
 		})
 
-		// Run the server on port 8080
 		if err := router.Run(":8080"); err != nil {
 			panic(err)
 		}
